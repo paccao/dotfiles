@@ -10,7 +10,7 @@ Essential apps:
 
 Optional apps:
 
-`zed editor, mullvad VPN, OpenRGB, Keepassxc, pavucontrol, discord`
+`zed IDE, mullvad VPN, OpenRGB, keepassxc, pavucontrol, discord`
 
 ## Setup:
 
@@ -18,7 +18,11 @@ Optional apps:
 git clone --depth=1 git@github.com:paccao/dotfiles.git
 
 # Careful with these
-cp -i -a dotfiles/. ~
+cp -i -a dotfiles/. ~/
 rm -rf ~/.git
 rm -i ~/README.md
 ```
+
+## Resources
+
+[https://dotfiles.github.io/](https://dotfiles.github.io/)
