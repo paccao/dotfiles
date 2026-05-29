@@ -22,7 +22,7 @@ find dotfiles/scripts/ -type f -iname "*.sh" -exec chmod 744 {} \;
 find dotfiles/.config/polybar/scripts/ -type f -iname "*.sh" -exec chmod 744 {} \;
 
 # Be careful with these
-cp -i -a dotfiles/. ~/
+cp -a dotfiles/. ~/
 rm -rf ~/.git
 rm -i ~/README.md
 ```
