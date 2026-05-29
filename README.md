@@ -10,19 +10,25 @@ Essential apps:
 
 Optional apps:
 
-`zed IDE, mullvad VPN, OpenRGB, keepassxc, pavucontrol, discord`
+`zed IDE, mullvad VPN, OpenRGB, keepassxc, pavucontrol, discord, ripgrep, fzf`
 
 ## Setup:
 
 ```sh
 git clone --depth=1 git@github.com:paccao/dotfiles.git
 
-# Careful with these
+# List all scripts and give owner full rights. Group and others gets read-only.
+find dotfiles/scripts/ -type f -iname "*.sh" -exec chmod 744 {} \;
+find dotfiles/.config/polybar/scripts/ -type f -iname "*.sh" -exec chmod 744 {} \;
+
+# Be careful with these
 cp -i -a dotfiles/. ~/
 rm -rf ~/.git
 rm -i ~/README.md
 ```
 
+
 ## Resources
 
-[https://dotfiles.github.io/](https://dotfiles.github.io/)
+- [all about dotfiles](https://dotfiles.github.io/)
+- [chmod explanations](https://chmodcommand.com/chmod-744/)
