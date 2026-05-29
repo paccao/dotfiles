@@ -6,7 +6,7 @@ A repo to keep track of my dotfiles and make it simple to install them on a new 
 
 Essential apps:
 
-`i3wm, picom, xorg, alacritty, fish, polybar`
+`i3wm, picom, xorg, alacritty, fish, polybar, pipewire`
 
 Optional apps:
 
@@ -27,6 +27,21 @@ rm -rf ~/.git
 rm -i ~/README.md
 ```
 
+In `scripts/update-remote-dotfiles.sh` update the `TARGET` var to the destination where u cloned dotfiles.
+
+Done!
+
+## Update
+
+The script `scripts/update-remote-dotfiles.sh` copies files from your home dir to the git repo, in order to push changes to remote easier.
+
+You can also use tools like [chezmoi](https://www.chezmoi.io/) for this.
+
+## Considerations
+
+Some apps store cached passwords, db files, logs etc in `.config/` and you don't want to commit those.
+
+Be specific when u add paths in the var SOURCES in `scripts/update-remote-dotfiles.sh`.
 
 ## Resources
 
