@@ -18,6 +18,7 @@ Optional apps:
 git clone --depth=1 git@github.com:paccao/dotfiles.git
 
 # Careful with these
-cp -a dotfiles/. ~
-rm -rf ~/.git README.md
+cp -i -a dotfiles/. ~
+rm -rf ~/.git
+rm -i ~/README.md
 ```
