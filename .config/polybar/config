@@ -157,21 +157,6 @@ type = custom/script
 exec = ~/.config/polybar/scripts/localip.sh
 tail = false
 
-[module/info-hackspeed]
-type = custom/script
-exec = ~/.config/polybar/scripts/info-hackspeed.sh
-tail = true
-
-[module/weather]
-type = custom/script
-exec = ~/.config/polybar/scripts/weather-openmap.sh
-interval = 600
-
-[module/linux-ver]
-type = custom/script
-exec = uname -r
-interval = 600
-
 [module/updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/arch_updates.sh
@@ -197,12 +182,6 @@ type = custom/script
 exec = ~/.config/polybar/scripts/network-networkmanager.sh
 tail = true
 
-[module/pipewire-microphone]
-type = custom/script
-exec = ~/.config/polybar/scripts/pipewire-microphone.sh
-tail = true
-click-left = ~/.config/polybar/scripts/pipewire-microphone.sh --toggle &
-
 [module/pipewire-simple]
 type = custom/script
 exec = ~/.config/polybar/scripts/pipewire-simple.sh
@@ -211,58 +190,6 @@ click-right = exec pavucontrol &
 click-left = ~/.config/polybar/scripts/pipewire-simple.sh --mute &
 scroll-up = ~/.config/polybar/scripts/pipewire-simple.sh --up &
 scroll-down = ~/.config/polybar/scripts/pipewire-simple.sh --down &
-
-[module/volume]
-type = internal/alsa
-
-; Soundcard to be used
-; Usually in the format hw:# where # is the card number
-; You can find the different card numbers in `/proc/asound/cards`
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-
-; Name of the master, speaker and headphone mixers
-; Use the following command to list available mixer controls:
-; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
-; If master, speaker or headphone-soundcard isn't the default,
-; use `amixer -c # scontrols` instead where # is the number
-; of the master, speaker or headphone soundcard respectively
-;
-; Default: Master
-master-mixer = Master
-
-format-volume = "<label-volume><bar-volume>"
-label-volume = " "
-label-volume-foreground = ${colors.foreground-alt}
-label-volume-background = ${colors.background-alt}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-format-muted-background = ${colors.background-alt}
-label-muted = MUTED
-
-bar-volume-width = 5
-bar-volume-foreground-0 = ${colors.foreground-alt}
-bar-volume-foreground-1 = ${colors.foreground-alt}
-bar-volume-foreground-2 = ${colors.foreground-alt}
-bar-volume-foreground-3 = ${colors.foreground-alt}
-bar-volume-foreground-4 = ${colors.foreground-alt}
-bar-volume-foreground-5 = ${colors.foreground-alt}
-bar-volume-foreground-6 = ${colors.foreground-alt}
-bar-volume-gradient = false
-bar-volume-indicator = []
-bar-volume-indicator-font = 1
-bar-volume-indicator-foreground = ${colors.foreground-alt}
-bar-volume-indicator-background = ${colors.background-alt}
-bar-volume-fill = -
-bar-volume-fill-font = 1
-bar-volume-fill-foreground = ${colors.foreground-alt}
-bar-volume-fill-background = ${colors.background-alt}
-bar-volume-empty = -
-bar-volume-empty-font = 1
-bar-volume-empty-foreground = ${colors.foreground-alt}
-bar-volume-empty-background = ${colors.background-alt}
 
 [settings]
 throttle-output = 5
