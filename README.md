@@ -10,7 +10,7 @@ Essential apps:
 
 Optional apps:
 
-`zed IDE, mullvad VPN, OpenRGB, keepassxc, pavucontrol, discord, ripgrep, fzf`
+`zed IDE, mullvad VPN, OpenRGB, pavucontrol, discord, ripgrep, fzf`
 
 ## Setup:
 
