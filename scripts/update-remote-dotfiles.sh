@@ -8,10 +8,9 @@ TARGET="$HOME/c/dotfiles"
 # List of files to copy. Be specific, don't use wildcards.
 SOURCES=(
   "$HOME/.config/alacritty/alacritty.toml"
-  "$HOME/.config/autostart/mullvad.desktop"
+  "$HOME/.config/autostart/mullvad-vpn.desktop"
   "$HOME/.config/autostart/OpenRGB.desktop"
   "$HOME/.config/fish/config.fish"
-  "$HOME/.config/fish/fish_variables"
   "$HOME/.config/i3/config"
   "$HOME/.config/i3/wallpaper.png"
   "$HOME/.config/keepassxc/keepassxc.ini"
@@ -40,6 +39,12 @@ for src in "${SOURCES[@]}"; do
     echo "Error: source not found: $src" >&2
     exit 2
   fi
-  cp -a -- "$src" "$TARGET/" || { echo "Failed to copy $src" >&2; exit 3; }
-  echo "Copied: $src -> $TARGET/"
+
+  rel="${src#"$HOME"/}"
+  dest="$TARGET/$rel"
+
+  mkdir -p -- "$(dirname -- "$dest")"
+  cp -a -- "$src" "$dest" || { echo "Failed to copy $src" >&2; exit 3; }
+  echo "Copied: $src -> $dest"
+
 done
