@@ -15,7 +15,13 @@ alias clipboard='xclip -selection c'
 alias sdocs='rg -w ~/Documents -e ' # search ~/Documents and print path to file
 alias sodocs='sdocs $1 | awk {grep pwd} | vim'
 alias osdocs='cd ~/Documents && fzf > fzfout && vim $(cat fzfout)' # search ~/Documents with fzf and open file in vim
+alias k='kubectl'
+alias k9s='k9s'
 
+set KUBECONFIG $HOME/c/homelab/infra/talos/kubeconfig.yaml
+set TALOSCONFIG $HOME/c/homelab/infra/talos/talosconfig.yaml
+
+set -Ux QT_FONT_DPI 1.5
 
 set -gx PATH $PATH $HOME/bin
 # overwrite greeting
