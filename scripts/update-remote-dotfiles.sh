@@ -13,7 +13,6 @@ SOURCES=(
   "$HOME/.config/fish/config.fish"
   "$HOME/.config/i3/config"
   "$HOME/.config/i3/wallpaper.png"
-  "$HOME/.config/keepassxc/keepassxc.ini"
   "$HOME/.config/OpenRGB/k95 orange.orp"
   "$HOME/.config/picom/picom.conf"
   "$HOME/.config/polybar/scripts/arch_updates.sh"
