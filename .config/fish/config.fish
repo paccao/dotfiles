@@ -17,13 +17,16 @@ alias sodocs='sdocs $1 | awk {grep pwd} | vim'
 alias osdocs='cd ~/Documents && fzf > fzfout && vim $(cat fzfout)' # search ~/Documents with fzf and open file in vim
 alias k='kubectl'
 alias k9s='k9s'
+alias monitor-left-upright='xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-0 --rate 74.97 --scale 1x1 --dpi 115 --rotate normal'
+alias monitor-left-rotated='xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-0 --rate 74.97 --scale 1x1 --dpi 115 --rotate left'
 
-set KUBECONFIG $HOME/c/homelab/infra/talos/kubeconfig.yaml
-set TALOSCONFIG $HOME/c/homelab/infra/talos/talosconfig.yaml
+set KUBECONFIG $HOME/.kube/config
+set TALOSCONFIG $HOME/c/homelab/kubernetes/bootstrap/talos/clusterconfig/talosconfig
 
 set -Ux QT_FONT_DPI 1.5
 
 set -gx PATH $PATH $HOME/bin
+set -gx PATH $PATH $HOME/.bun/bin
 # overwrite greeting
 # potentially disabling fastfetch
 function fish_greeting

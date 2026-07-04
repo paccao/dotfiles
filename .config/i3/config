@@ -95,6 +95,7 @@ workspace 3 output $primary_monitor
 workspace 5 output $external_monitor
 
 assign [class="firefox"] $ws1
+assign [class="dev.zed.Zed"] $ws2
 assign [class="spotify"] $ws4
 assign [class="discord"] $ws4
 assign [class="vlc"] $ws4
@@ -197,7 +198,9 @@ for_window [class="cachyos-welcome"] floating enable
 ########################################################################
 ########################################################################
 
-bindsym Print exec flameshot gui
+bindsym --release Print exec flameshot screen -n 0 -p ~/Pictures/Screenshots
+bindsym --release Shift+Print exec flameshot gui -p ~/Pictures/Screenshots
+bindsym --release Control+Print exec 
 
 bindsym XF86AudioRaiseVolume exec "pamixer -ui 3 && pamixer --get-volume > /tmp/xobpipe"
 bindsym XF86AudioLowerVolume exec "pamixer -ud 3 && pamixer --get-volume > /tmp/xobpipe"
@@ -235,7 +238,7 @@ exec feh --bg-fill ~/.config/i3/wallpaper.png
 exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id redshift
-exec --no-startup-id flameshot
+exec --no-startup-id flameshot gui
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
