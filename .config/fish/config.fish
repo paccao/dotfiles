@@ -32,3 +32,11 @@ set -gx PATH $PATH $HOME/.bun/bin
 function fish_greeting
     # smth smth
 end
+
+
+# pnpm
+set -gx PNPM_HOME "/home/plum/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
