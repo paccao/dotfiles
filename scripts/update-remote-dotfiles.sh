@@ -23,6 +23,7 @@ SOURCES=(
   "$HOME/.config/polybar/launch.sh"
   "$HOME/.config/zed/settings.json"
   "$HOME/.config/pavucontrol.ini"
+  "$HOME/.local/share/rofi/themes/GPL-3.0_squared-everforest.rasi"
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
   "$HOME/.gitconfig"
