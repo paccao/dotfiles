@@ -7,41 +7,117 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "allow_data_collection": "no"
+  },
+  "tab_size": 2,
+  "line_ending": "prefer_lf",
+  "format_on_save": "off",
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+  },
+  "preferred_line_length": 110,
+  "soft_wrap": "editor_width",
+  "diff_view_style": "split",
   "cli_default_open_behavior": "existing_window",
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
+    "group_by": "staging",
     "tree_view": true,
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
+    "sidebar_side": "right",
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "copy_path": true,
+          "create_directory": true,
+          "create_thread": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "apply_code_action": true,
+          "ask_user": false,
+          "edit_file": true,
+          "write_file": true,
+          "fetch": true,
+          "find_path": true,
+          "find_references": true,
+          "get_code_actions": true,
+          "go_to_definition": true,
+          "list_agents_and_models": true,
+          "list_directory": true,
+          "move_path": true,
+          "rename_symbol": true,
+          "read_file": true,
+          "grep": true,
+          "skill": true,
+          "spawn_agent": true,
+          "terminal": false,
+          "search_web": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
+    "default_model": {
+      "provider": "llama.cpp",
+      "model": "ggml-org/Qwen3.8-27B-GGUF:Q4_K_M",
+      "enable_thinking": true
+    },
+    "sandbox_permissions": {
+      "network_hosts": [
+        "github.com",
+        "svelte.dev",
+        "sveltiacms.app",
+        "node.js",
+        "typescriptlang.org"
+      ]
+    },
+    "show_turn_stats": true,
     "button": false,
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "collaboration_panel": {
     "dock": "left",
-    "button": false
+    "button": false,
   },
   "project_panel": {
     "bold_folder_labels": true,
     "indent_size": 35.0,
     "entry_spacing": "comfortable",
     "default_width": 470.0,
-    "dock": "left"
+    "dock": "left",
   },
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "terminal": {
     "max_scroll_history_lines": 50000,
-    "default_height": 600.0
+    "default_height": 600.0,
   },
   "calls": {
-    "mute_on_join": true
+    "mute_on_join": true,
   },
   "proxy": "",
   "disable_ai": true,
@@ -52,20 +128,20 @@
   "agent_ui_font_size": 24.0,
   "prettier": {
     "parser": "",
-    "allowed": true
+    "allowed": false,
   },
   "autosave": "on_focus_change",
   "buffer_font_weight": 400.0,
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "icon_theme": "Zed (Default)",
-  "ui_font_size": 25.0,
+  "ui_font_size": 29.0,
   "buffer_font_size": 23.0,
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark",
+    "dark": "One Dark Pro",
   },
 }
