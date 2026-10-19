@@ -3,3 +3,5 @@
 	email = 16489683+paccao@users.noreply.github.com
 [init]
 	defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = https://github.com
