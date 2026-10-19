@@ -11,7 +11,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym ctrl+space exec rofi -show run
-bindsym $mod+d exec "rofi -show combi -modi window,run,combi -combi-modi window,run -show-icons"
+bindsym $mod+d exec "rofi -show combi -modi window,drun,combi -combi-modi window,drun,run -show-icons"
 #bindsym ctrl+space exec dmenu_run
 
 # alternatively, you can use the cursor keys:
@@ -122,6 +122,11 @@ for_window [class="KeePassXC"] move to workspace $ws5
 for_window [class="steam_app_*"] move to workspace $ws3
 assign [class="steam_app_*"] $ws3
 
+# Prism minecraft modlauncher (progress peek is a mod, not all mod instances have this)
+for_window [class="me.decce.progresspeek"] move to workspace $ws3
+assign [class="me.decce.progresspeek"] $ws3
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -198,9 +203,8 @@ for_window [class="cachyos-welcome"] floating enable
 ########################################################################
 ########################################################################
 
-bindsym --release Print exec flameshot screen -n 0 -p ~/Pictures/Screenshots
-bindsym --release Shift+Print exec flameshot gui -p ~/Pictures/Screenshots
-bindsym --release Control+Print exec 
+bindsym --release Print exec flameshot screen -n 0 -p ~/Pictures/Screenshots -c
+bindsym --release Shift+Print exec flameshot gui -p ~/Pictures/Screenshots -c
 
 bindsym XF86AudioRaiseVolume exec "pamixer -ui 3 && pamixer --get-volume > /tmp/xobpipe"
 bindsym XF86AudioLowerVolume exec "pamixer -ud 3 && pamixer --get-volume > /tmp/xobpipe"
@@ -209,9 +213,6 @@ bindsym XF86AudioMute exec "amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[
 
 bindsym $mod+Shift+p exec gnome-calculator
 #bindsym $mod+p exec ~/.scripts/dmshot
-
-## This will switch the current layout to the 'us'.
-#bindsym $mod+l exec "setxkbmap -layout us && sleep 0.1 && setxkbmap -option grp:caps_toggle 'us,ru' -option grp_led:caps && sleep 0.1 && i3lock --blur 5"
 
 ## This keybind will lock the screen. The lockscreen.
 bindsym $mod+l exec "sleep 0.1 && i3lock --blur 5"
@@ -232,11 +233,6 @@ bindsym --release $mod+KP_Down exec --no-startup-id ~/scripts/teve/teve-final-le
 ########################################################################
 ########################################################################
 
-## Here is a language switcher by pressing capslock button,
-## and the capslock functionality available by using shift+capslock.
-## Uncomment to enable 'us' to/from 'ru' switch. change to language(s) you prefer more.
-
-#exec_always setxkbmap -option grp:caps_toggle "us,ru" -option "grp:caps_toggle,grp_led:caps"
 
 #exec xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --scale 1x1
 #exec xrandr --auto --output HDMI-1 --mode 1920x1080 --above HDMI-2
@@ -252,5 +248,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob -t 2170 & disown
 #exec ~/.i3/launch.sh
-exec_always source ~/.xsession
+
+# Set window layout, dpi, etc.
+exec_always --no-startup-id ~/scripts/xsession-startup.sh
+exec_always --no-startup-id ~/scripts/layout-toggler.sh
 
