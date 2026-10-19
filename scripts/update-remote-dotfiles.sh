@@ -2,18 +2,16 @@
 set -euo pipefail
 unalias cp 2>/dev/null || true
 
-# Update this to where u cloned the dotfiles repo /path/to/dotfiles-git-repo
 TARGET="$HOME/c/dotfiles"
 
-# List of files to copy. Be specific, don't use wildcards.
-SOURCES=(
+DOTFILES=(
   "$HOME/.config/alacritty/alacritty.toml"
   "$HOME/.config/autostart/mullvad-vpn.desktop"
   "$HOME/.config/autostart/OpenRGB.desktop"
   "$HOME/.config/fish/config.fish"
   "$HOME/.config/i3/config"
   "$HOME/.config/i3/wallpaper.png"
-  "$HOME/.config/OpenRGB/k95 orange.orp"
+  # "$HOME/.config/OpenRGB/k95 orange.orp"
   "$HOME/.config/picom/picom.conf"
   "$HOME/.config/polybar/scripts/arch_updates.sh"
   "$HOME/.config/polybar/scripts/localip.sh"
@@ -34,17 +32,38 @@ SOURCES=(
   "$HOME/.zshrc"
 )
 
-for src in "${SOURCES[@]}"; do
-  if [ ! -e "$src" ]; then
-    echo "Error: source not found: $src" >&2
-    exit 2
-  fi
+SCRIPTS=(
+  "$HOME/scripts/xsession-startup.sh"
+  "$HOME/scripts/launch-chromium.sh"
+  "$HOME/scripts/layout-toggler.sh"
+  "$HOME/scripts/mouse-jiggle.sh"
+  "$HOME/scripts/revo-copy-last-load.sh"
+  "$HOME/scripts/revo-load-levelling-char.sh"
+  "$HOME/scripts/teve/teve-copy-last-load.sh"
+  "$HOME/scripts/teve/teve-final-levelling.sh"
+  "$HOME/scripts/tevo-leveling-script.sh"
+)
 
-  rel="${src#"$HOME"/}"
-  dest="$TARGET/$rel"
+copy_files() {
+  local base="$1"
+  shift
+  local src rel dest
 
-  mkdir -p -- "$(dirname -- "$dest")"
-  cp -a -- "$src" "$dest" || { echo "Failed to copy $src" >&2; exit 3; }
-  echo "Copied: $src -> $dest"
+  for src in "$@"; do
+    if [ ! -e "$src" ]; then
+      echo "Error: source not found: $src" >&2
+      exit 2
+    fi
 
-done
+    rel="${src#"$base"/}"
+    dest="$TARGET/$rel"
+
+    # This creates all parent directories automatically
+    mkdir -p -- "$(dirname -- "$dest")"
+    cp -a -- "$src" "$dest" || { echo "Failed to copy $src" >&2; exit 3; }
+    echo "Copied: $src -> $dest"
+  done
+}
+
+copy_files "$HOME" "${DOTFILES[@]}"
+copy_files "$HOME" "${SCRIPTS[@]}"
