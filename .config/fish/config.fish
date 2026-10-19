@@ -19,9 +19,16 @@ alias k='kubectl'
 alias k9s='k9s'
 alias monitor-left-upright='xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-0 --rate 74.97 --scale 1x1 --dpi 115 --rotate normal'
 alias monitor-left-rotated='xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-0 --rate 74.97 --scale 1x1 --dpi 115 --rotate left'
+# Run clamav with lower cpu and I/O priority so that it hopefully doesnt crash the computer
+alias clamscan="nice -n 10 ionice -c2 -n7 clamscan --recursive --log=/tmp/clamscan.log"
+alias todo="vim ~/TODO.md"
+alias tree="tree --metafirst --du -h -u -g --acl"
+alias chromium="GDK_SCALE=1.5 chromium"
 
 set KUBECONFIG $HOME/.kube/config
 set TALOSCONFIG $HOME/c/homelab/kubernetes/bootstrap/talos/clusterconfig/talosconfig
+set CONTROLPLANE_IPS "192.168.30.10,192.168.30.12"
+set WORKER_IPS "192.168.30.18"
 
 set -Ux QT_FONT_DPI 1.5
 
@@ -35,8 +42,9 @@ end
 
 
 # pnpm
-set -gx PNPM_HOME "/home/plum/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+set -gx PNPM_HOME '/home/plum/.local/share/pnpm'
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
 end
 # pnpm end
+/home/plum/.local/bin/mise activate fish | source

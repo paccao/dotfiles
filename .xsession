@@ -1,4 +1,3 @@
-setxkbmap -layout "se,us" -option caps:swapescape -option grp:win_space_toggle
-xrandr --output DisplayPort-0 --mode 3840x2160 --rate 239.91 --scale 1x1 --dpi 170
-xrandr --output HDMI-A-0 --mode 1920x1080 --left-of DisplayPort-0 --rotate normal --rate 74.97 --scale 1x1 --dpi 115
+# The rest of the usual .xsession config is put in a different place to prevent creating a bad loop launching multiple i3 instances since I want to source my "xsession config" when i reload i3.
+# Therefore, .xsession only executes i3 here, the rest is put into the i3 config.
 exec i3
