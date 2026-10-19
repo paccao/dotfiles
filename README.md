@@ -6,11 +6,11 @@ A repo to keep track of my dotfiles and make it simple to install them on a new 
 
 Essential apps:
 
-`i3wm, picom, xorg, alacritty, fish, polybar, pipewire`
+`i3wm, picom, xorg, alacritty, fish, polybar, pipewire, vim`
 
 Optional apps:
 
-`zed IDE, mullvad VPN, OpenRGB, pavucontrol, discord, ripgrep, fzf`
+`zed IDE, mullvad VPN, OpenRGB, pavucontrol, discord, ripgrep, fzf, flameshot, tree, chromium, mise`
 
 ## Setup:
 
