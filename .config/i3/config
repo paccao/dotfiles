@@ -225,8 +225,8 @@ bindsym $mod+l exec "sleep 0.1 && i3lock --blur 5"
 #bindsym --release $mod+KP_Down exec --no-startup-id ~/scripts/revo-load-levelling-char.sh
 
 # TEVE Final scripts
-bindsym --release $mod+KP_End exec --no-startup-id ~/scripts/teve/teve-final-levelling.sh --levelling
-bindsym --release $mod+KP_Down exec --no-startup-id ~/scripts/teve/teve-final-levelling.sh
+#bindsym --release $mod+KP_End exec --no-startup-id ~/scripts/teve/teve-final-levelling.sh --levelling
+#bindsym --release $mod+KP_Down exec --no-startup-id ~/scripts/teve/teve-final-levelling.sh
 
 ########################################################################
 ########################################################################
@@ -236,9 +236,6 @@ bindsym --release $mod+KP_Down exec --no-startup-id ~/scripts/teve/teve-final-le
 ########################################################################
 ########################################################################
 
-
-#exec xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --scale 1x1
-#exec xrandr --auto --output HDMI-1 --mode 1920x1080 --above HDMI-2
 
 exec feh --bg-fill ~/.config/i3/wallpaper.png
 
