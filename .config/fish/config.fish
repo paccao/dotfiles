@@ -48,3 +48,6 @@ if not string match -q -- "$PNPM_HOME/bin" $PATH
 end
 # pnpm end
 /home/plum/.local/bin/mise activate fish | source
+
+# opencode
+fish_add_path /home/plum/.opencode/bin

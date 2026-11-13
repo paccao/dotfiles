@@ -8,11 +8,12 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "edit_predictions": {
+    "provider": "ollama",
     "allow_data_collection": "no"
   },
   "tab_size": 2,
   "line_ending": "prefer_lf",
-  "format_on_save": "off",
+  "format_on_save": "on",
   "lsp": {
     "vtsls": {
       "settings": {
@@ -43,7 +44,9 @@
     "dock": "left",
   },
   "agent": {
-    "sidebar_side": "right",
+    "threads_sidebar": {
+      "position": "right"
+    },
     "profiles": {
       "write": {
         "name": "Write",
@@ -120,7 +123,7 @@
     "mute_on_join": true,
   },
   "proxy": "",
-  "disable_ai": true,
+  "disable_ai": false,
   "horizontal_scroll_margin": 2.0,
   "vertical_scroll_margin": 1.0,
   "scroll_sensitivity": 1.0,
